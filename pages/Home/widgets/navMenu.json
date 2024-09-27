@@ -61,7 +61,7 @@
     "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
   },
   "onClick": "{{storeValue('selTab', navTo);}}",
-  "originalBottomRow": 75,
+  "originalBottomRow": 34,
   "originalTopRow": 24,
   "parentColumnSpace": 16.515625,
   "parentId": "0",

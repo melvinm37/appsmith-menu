@@ -1,0 +1,3 @@
+SELECT a.lt_client_name as client from lt_agent_clients b,lt_clients a 
+where b.client_id = a.id
+and b.agent_id = {{List1.selectedItem.id}}

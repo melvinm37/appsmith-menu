@@ -3,13 +3,7 @@ export default {
 // Using the flaticon.es library you can find icons to add in the icon property
 
 	items () {
-		let items = 
-				{
-					"options" : [
-						{
-							"mainOption" : "Agenda",
-							"icon":"rr-calendar",
-							"subOptions" :  [
+		let menu_optins = [
 								{
 									"item" : "Appointments",
 									"icon":"rr-list-check",
@@ -23,6 +17,13 @@ export default {
 									"navTo" : "Reports"
 								}
 							]
+		let items = 
+				{
+					"options" : [
+						{
+							"mainOption" : "Agenda",
+							"icon":"rr-calendar",
+							"subOptions" :  menu_optins
 						},
 						{
 							"mainOption" : "Config",
