@@ -1,0 +1,11 @@
+{
+  "gitSyncId": "66f6f093ba79c66138b7c1d8_b18dfde5-0b42-421e-8074-7620515ede44",
+  "id": "Home_menuConfig",
+  "unpublishedCollection": {
+    "name": "menuConfig",
+    "pageId": "Home",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": []
+  }
+}

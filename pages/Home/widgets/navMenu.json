@@ -1,0 +1,95 @@
+{
+  "backgroundColor": "{{appsmith.theme.colors.backgroundColor}}",
+  "borderColor": "{{appsmith.theme.colors.backgroundColor}}",
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": "0",
+  "bottomRow": 34,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "defaultModel": "{{menuConfig.items.data}}",
+  "displayName": "Custom",
+  "dynamicBindingPathList": [
+    {
+      "key": "theme"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    },
+    {
+      "key": "defaultModel"
+    },
+    {
+      "key": "backgroundColor"
+    },
+    {
+      "key": "borderColor"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onClick"
+    }
+  ],
+  "events": [
+    "onClick"
+  ],
+  "hideCard": false,
+  "iconSVG": "https://appcdn.appsmith.com/static/media/icon.ff37253a5ce2f5284c42ede26ce165f9.svg",
+  "isCanvas": false,
+  "isDeprecated": false,
+  "isLoading": false,
+  "isSearchWildcard": true,
+  "isVisible": true,
+  "key": "c4kjyb09a8",
+  "leftColumn": 0,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "mobileBottomRow": 101,
+  "mobileLeftColumn": 4,
+  "mobileRightColumn": 27,
+  "mobileTopRow": 71,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "onClick": "{{storeValue('selTab', navTo);}}",
+  "originalBottomRow": 75,
+  "originalTopRow": 24,
+  "parentColumnSpace": 16.515625,
+  "parentId": "0",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "rightColumn": 12,
+  "searchTags": [
+    "external"
+  ],
+  "shouldScrollContents": true,
+  "srcDoc": {
+    "css": "/* Import flaticon Library for the ICONS */\n@import url(\"https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css\");\n.accordion {\n  background-color: var(--appsmith-theme-backgroundColor);\n  color: var(--appsmith-theme-secondaryColor);\n  cursor: pointer;\n  padding: 10px;\n  width: 100%;\n  border: none;\n  text-align: left;\n  outline: none;\n  font-size: 15px;\n  transition: 0.4s;\n  font-family: \"Poppins\", serif;\n}\n\n.accordion i {\n  vertical-align: middle; /* Icon vertical position */\n  margin-right: 5px; /* Margin with text */\n}\n\n.active, .accordion:hover {\n  background-color: #ddd;\n}\n\n.panel {\n  padding: 0 18px;\n  display: none;\n  background-color: var(--appsmith-theme-backgroundColor);\n  overflow: hidden;\n}\n\n.sub-option {\n  padding: 10px;\n  cursor: pointer;\n  border-bottom: 1px solid #ccc;\n  font-family: \"Poppins\", serif;\n  font-size: 13px;\n  font-color: var(--appsmith-theme-primaryColor);\n  transition: background-color 0.5s ease;\n}\n\n.sub-option i {\n  vertical-align: text-bottom; /* Icon vertical position */\n  margin-right: 5px; /* Margin with text */\n}\n\n.sub-option:hover {\n  background-color: #f9f9f9; /*#e9e9e9 */\n}\n\n.sub-option.active {\n  background-color: #e9e9e9;\n}",
+    "html": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link\thref=\"https://fonts.googleapis.com/css2?family=Poppins&display=swap\" rel=\"stylesheet\">\n<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>\n<body>\n\t<div id=\"accordion-container\"></div>\n</body>\n",
+    "js": "appsmith.onReady(() => {\n  // JSON object with options and suboptions\n  var data = appsmith.model;\n\n  // Function to create the accordion menu\n  function createAccordionMenu(data) {\n    var accordionContainer = document.getElementById(\"accordion-container\");\n    data.options.forEach(function (option) {\n      var mainOption = document.createElement(\"button\");\n      mainOption.classList.add(\"accordion\");\n      mainOption.innerHTML = '<i class=\"fi fi-' + option.icon + '\"></i>' + option.mainOption;\n      accordionContainer.appendChild(mainOption);\n      var panel = document.createElement(\"div\");\n      panel.classList.add(\"panel\");\n      accordionContainer.appendChild(panel);\n      option.subOptions.forEach(function (subOption, index) {\n        var subOptionElement = document.createElement(\"div\");\n        subOptionElement.classList.add(\"sub-option\");\n        subOptionElement.innerHTML = '<i class=\"fi fi-' + subOption.icon + '\"></i>' + subOption.item;\n        panel.appendChild(subOptionElement);\n        subOptionElement.addEventListener(\"click\", function (event) {\n          // Remove active class from all sub-options\n          accordionContainer.querySelectorAll('.sub-option').forEach(function (el) {\n            el.classList.remove('active');\n          });\n          // Add active class to the clicked sub-option\n          subOptionElement.classList.add('active');\n          //Add the Appsmith event to send the information needed\n          appsmith.triggerEvent(\"onClick\", {\n            itemId: index,\n            type: subOption.type,\n            navTo: subOption.navTo\n          });\n          event.preventDefault();\n        });\n      });\n      mainOption.addEventListener(\"click\", function () {\n        panel.style.display = panel.style.display === \"block\" ? \"none\" : \"block\";\n        mainOption.classList.toggle(\"active\");\n      });\n    });\n  }\n\n  // Create the accordion menu\n  createAccordionMenu(data);\n});"
+  },
+  "tags": [
+    "Display"
+  ],
+  "theme": "{{appsmith.theme}}",
+  "thumbnailSVG": "https://appcdn.appsmith.com/static/media/thumbnail.a7d7cde44fad9a0d4d490def43560a78.svg",
+  "topRow": 24,
+  "type": "CUSTOM_WIDGET",
+  "uncompiledSrcDoc": {
+    "css": "/* Import flaticon Library for the ICONS */\n@import url('https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css');\n\n.accordion {\n    background-color: var(--appsmith-theme-backgroundColor);\n   \tcolor: var(--appsmith-theme-secondaryColor);\n    cursor: pointer;\n    padding: 10px;\n\t  width: 100%;\n    border: none;\n    text-align: left;\n    outline: none;\n    font-size: 15px;\n    transition: 0.4s;\n\t\tfont-family: \"Poppins\", serif;\n}\n.accordion i {\n    vertical-align: middle; /* Icon vertical position */\n    margin-right: 5px; /* Margin with text */\n}\n.active, .accordion:hover {\n    background-color: #ddd;\n}\n\n.panel {\n    padding: 0 18px;\n    display: none;\n    background-color: var(--appsmith-theme-backgroundColor);\n    overflow: hidden;\n}\n\n.sub-option {\n    padding: 10px;\n\t  cursor: pointer;\n    border-bottom: 1px solid #ccc;\n\t  font-family: \"Poppins\", serif;\n\t  font-size: 13px;\n\t  font-color: var(--appsmith-theme-primaryColor);\n\t  transition: background-color 0.5s ease; \n}\n.sub-option i {\n    vertical-align: text-bottom; /* Icon vertical position */\n    margin-right: 5px; /* Margin with text */\n}\n.sub-option:hover {\n    background-color: #f9f9f9;/*#e9e9e9 */\n}\n\n.sub-option.active {\n    background-color: #e9e9e9; \n}\n",
+    "html": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link\thref=\"https://fonts.googleapis.com/css2?family=Poppins&display=swap\" rel=\"stylesheet\">\n<link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.3.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>\n<body>\n\t<div id=\"accordion-container\"></div>\n</body>\n",
+    "js": "appsmith.onReady(() => {\n\t// JSON object with options and suboptions\n\tvar data = appsmith.model;\n\n\t// Function to create the accordion menu\n\tfunction createAccordionMenu(data) {\n\t\tvar accordionContainer = document.getElementById(\"accordion-container\");\n\n\t\tdata.options.forEach(function(option) {\n\t\t\tvar mainOption = document.createElement(\"button\");\n\t\t\tmainOption.classList.add(\"accordion\");\n\t\t\tmainOption.innerHTML = '<i class=\"fi fi-' + option.icon + '\"></i>' + option.mainOption;\n\t\t\taccordionContainer.appendChild(mainOption);\n\n\t\t\tvar panel = document.createElement(\"div\");\n\t\t\tpanel.classList.add(\"panel\");\n\t\t\taccordionContainer.appendChild(panel);\n\n\t\t\toption.subOptions.forEach(function(subOption, index) {\n\t\t\t\tvar subOptionElement = document.createElement(\"div\");\n\t\t\t\tsubOptionElement.classList.add(\"sub-option\");\n\t\t\t\tsubOptionElement.innerHTML = '<i class=\"fi fi-' + subOption.icon + '\"></i>' + subOption.item;\n\t\t\t\tpanel.appendChild(subOptionElement);\n\n\t\t\t\tsubOptionElement.addEventListener(\"click\",function(event){\n\t\t\t\t\t// Remove active class from all sub-options\n\t\t\t\t\taccordionContainer.querySelectorAll('.sub-option').forEach(function(el) {\n\t\t\t\t\t\tel.classList.remove('active');\n\t\t\t\t\t});\n\t\t\t\t\t// Add active class to the clicked sub-option\n\t\t\t\t\tsubOptionElement.classList.add('active');\n\t\t\t\t\t//Add the Appsmith event to send the information needed\n\t\t\t\t\tappsmith.triggerEvent(\"onClick\",{itemId:index,type : subOption.type, navTo: subOption.navTo } );\n\t\t\t\t\tevent.preventDefault();\n\n\t\t\t\t});\n\t\t\t});\n\n\t\t\tmainOption.addEventListener(\"click\", function() {\n\t\t\t\tpanel.style.display = panel.style.display === \"block\" ? \"none\" : \"block\";\n\t\t\t\tmainOption.classList.toggle(\"active\");\n\t\t\t});\n\t\t});\n\t}\n\n\t// Create the accordion menu\n\tcreateAccordionMenu(data);\n});\n"
+  },
+  "version": 1,
+  "widgetId": "c3r8mmel97",
+  "widgetName": "navMenu"
+}

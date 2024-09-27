@@ -1,0 +1,58 @@
+{
+  "animateLoading": true,
+  "borderOpacity": 100,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "borderWidth": 1,
+  "bottomRow": 47,
+  "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+  "displayName": "Iframe",
+  "dynamicBindingPathList": [
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "boxShadow"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "flexVerticalAlignment": "start",
+  "hideCard": false,
+  "iconSVG": "https://appcdn.appsmith.com/static/media/icon.99e0e6020fd949e060892f1c6a291b5a.svg",
+  "isDeprecated": false,
+  "isLoading": false,
+  "isVisible": true,
+  "key": "lska9hesjc",
+  "leftColumn": 0,
+  "mobileBottomRow": 35,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 24,
+  "mobileTopRow": 3,
+  "needsErrorInfo": false,
+  "onCanvasUI": {
+    "disableParentSelection": false,
+    "focusBGCSSVar": "--on-canvas-ui-widget-focus",
+    "focusColorCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionBGCSSVar": "--on-canvas-ui-widget-selection",
+    "selectionColorCSSVar": "--on-canvas-ui-widget-focus"
+  },
+  "parentColumnSpace": 13.6875,
+  "parentId": "xidi0g9w32",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 64,
+  "searchTags": [
+    "embed"
+  ],
+  "source": "https://www.example.com",
+  "srcDoc": "<div style=\"font-family: Verdana, Geneva, Tahoma, sans-serif\"> <p><strong>The Main Screen is a Tabs widget.</strong></p>\n<p>To set the menu options, edit the JSON object in the configMenu. The JSON has the following properties:</p>\n<ul>\n  <li>mainOption: Name of the Category</li>\n  <li>icon: the name of the icon in the flaticon.es cdn</li>\n  <li>subOptions array: the options inside the Category\n    <ul>\n      <li>item: Name to be shown</li>\n      <li>icon: the name of the icon in the flaticon.es cdn</li>\n      <li>type: use for different actions (navigation, execute functions, etc)</li>\n      <li>navTo: instruction to be sent to the Appsmith app (e.g., name of the tab to navigate)</li>\n    </ul>\n  </li>\n</ul>\n\n<p>You can add as many options as you want.</p>\n\n<p>The widget's style uses the Appsmith CSS API, adapting to the Theme.</p>\n\n<p>Feel free to use it as a template and modify as needed, adding more properties to the objects and customizing the widget.</p></div>",
+  "tags": [
+    "Display"
+  ],
+  "thumbnailSVG": "https://appcdn.appsmith.com/static/media/thumbnail.542dc4e979f061c70c19af83e2460c35.svg",
+  "topRow": 4,
+  "type": "IFRAME_WIDGET",
+  "version": 1,
+  "widgetId": "juvrqvmy9n",
+  "widgetName": "Iframe1"
+}
